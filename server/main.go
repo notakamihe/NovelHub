@@ -26,8 +26,9 @@ func main() {
 
 	database.DB.AutoMigrate(&models.Book{})
 	database.DB.AutoMigrate(&models.Author{})
+	database.DB.AutoMigrate(&models.Like{})
 
-	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "x-access-token"})
 	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
 	origins := handlers.AllowedOrigins([]string{"*"})
 
